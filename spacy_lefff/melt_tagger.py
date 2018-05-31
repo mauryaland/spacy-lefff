@@ -92,7 +92,7 @@ feat_select_options = {
 class POSTagger(Downloader):
 
     def __init__(self, data_dir=DATA_DIR, lexicon_file_name=LEXICON_FILE, tag_file_name=TAG_DICT, print_probas=False):
-        super(POSTagger, self).__init__(PACKAGE, url=URL_MODEL, download_dir=DATA_DIR)
+        super().__init__(PACKAGE, url=URL_MODEL, download_dir=DATA_DIR)
         tk.set_extension('melt_tagger', default=None)
         LOGGER.info("  TAGGER: Loading lexicon...")
         self.lex_dict = unserialize(lexicon_file_name)
