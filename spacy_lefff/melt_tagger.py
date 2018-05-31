@@ -306,8 +306,18 @@ class MaxEntClassifier:
         LOGGER.info("  TAGGER: Loading model from %s..." %dirpath)
         self.classes = unserialize( os.path.join(dirpath, 'classes.json'))
         self.feature2int = unserialize( os.path.join(dirpath, 'feature_map.json'))
-        self.weights = np.load( os.path.join(dirpath, 'weights.npy'))
-        self.bias_weights = np.load( os.path.join(dirpath, 'bias_weights.npy'))
+        try:
+            # Python 2
+            self.weights = np.load(os.path.join(dirpath, 'weights.npy'))
+        except:
+            # Python 3
+            self.weights = np.load(os.path.join(dirpath, 'weights.npy'), encoding='latin1')
+        try:
+            # Python 2
+            self.bias_weights = np.load(os.path.join(dirpath, 'bias_weights.npy'))
+        except:
+            # Python 3
+            self.bias_weights = np.load(os.path.join(dirpath, 'bias_weights.npy'), encoding='latin1')
         LOGGER.info("  TAGGER: Loading model from %s: done" %dirpath)
         return
 
