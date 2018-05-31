@@ -45,8 +45,8 @@ import numpy as np
 from json import dumps, loads
 import io
 from spacy.tokens import Token as tk
-from lefff import LefffLemmatizer
-from downloader import Downloader
+from .lefff import LefffLemmatizer
+from .downloader import Downloader
 
 LOGGER = logging.getLogger(__name__)
 
@@ -109,7 +109,7 @@ class POSTagger(Downloader):
     def load_model(self,model_path=MODELS_DIR):
         try:
             self.classifier.load( model_path )
-        except Exception,e:
+        except Exception as e:
             sys.exit("Error: Failure load POS model from %s (%s)" %(model_path,e))
         return
 
@@ -686,9 +686,9 @@ class Instance:
 ############################ utils.py ############################
 
 def debug_n_best_sequence(n_best_sequences):
-    print "debug"
-    print ("\n".join([ "%s/%.2f" % (" ".join([unicode(t) for t in l]),s)  for l,s in n_best_sequences])).encode("utf8")
-    print "----"
+    print("debug")
+    print(("\n".join([ "%s/%.2f" % (" ".join([unicode(t) for t in l]),s)  for l,s in n_best_sequences])).encode("utf8"))
+    print("----")
 
 def word_list(file_path,t=5):
     word_ct = {}
