@@ -504,7 +504,7 @@ class Instance:
         # selecting the suffix confidence class for the word
         val = 1
         if len(lex_tags) == 1:
-            val = lex_tags.values()[0]
+            val = list(lex_tags.values())[0]
         else:
             val = 1
             for v in lex_tags.values():
@@ -613,7 +613,7 @@ class Instance:
                 self.add('%s' %feat_suffix, "unk")
             elif len(lex_tags) == 1:
                 # unique tag
-                t = lex_tags.keys()[0]
+                t = list(lex_tags.keys())[0]
                 self.add('%s-u' %feat_suffix,t,lex_tags[t])
             else:
                 # disjunctive tag
