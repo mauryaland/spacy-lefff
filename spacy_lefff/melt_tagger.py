@@ -586,7 +586,7 @@ class Instance:
         # surronding contexts
         if win % 2 == 0:
             win /= 2
-            for n in range(1,win+1):
+            for n in range(1,int(win)+1):
                 surr_ngram = lwds[-n:] + rwds[:n]
                 if len(surr_ngram) == 2*n:
                     self.add('surr_wds-%s' %n, "#".join(surr_ngram))
