@@ -6,7 +6,7 @@ import logging
 import io
 
 from spacy.tokens import Token
-from mappings import WORDNET_LEFFF_DIC, SPACY_LEFFF_DIC
+from .mappings import WORDNET_LEFFF_DIC, SPACY_LEFFF_DIC
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 LEFFF_FILE_NAME = 'lefff-3.4.mlex'
